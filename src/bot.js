@@ -6,19 +6,22 @@ const fs = require('fs')
 
 client.commands = new Discord.Collection()
 
-fs.readdir('./Events', (err1, folders) => {
+let dir = path.resolve(__dirname, "../src/Events")
+
+fs.readdir(dir, (err1, folders) => {
+  console.log(dir)
   try {
     if (err1) {
       return console.log(`Erro interno ao "try" encontrado!\nErro: ${err1}`)
     } else {
       folders.forEach(folder => {
-        fs.readdir(`./Events/${folder}`, (err3, files) => {
+        fs.readdir(dir + `/${folder}`, (err3, files) => {
           if (err3) {
             console.log(`Erro em "err3" encontrado!\nErro: ${err3}`)
           } else {
             files.forEach(file => {
               if (path.extname(file) === '.js') {
-                let event_arquive = require(`./Events/${folder}/${file}`)
+                let event_arquive = require(dir + `/${folder}/${file}`)
                 client.on(`${folder}`, (...something) => event_arquive(client, ...something))
               } else {
                 return;
