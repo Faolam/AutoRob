@@ -1,0 +1,5 @@
+{
+    "err#1": "Tentativa Fracassada ao ler a pasta de destino. Caminho possivelmente errado.",
+    "err#2": "Erro coerente a uma tentativa 'catch' no código. Parametro possivelmente errado.",
+    "err#3": "Tentativa Fracassada ao ler um arquivo na pasta de destino. Caminho possivelmente errado."
+}

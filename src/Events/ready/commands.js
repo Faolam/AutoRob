@@ -11,7 +11,7 @@ module.exports = (client) => {
       folders.forEach(folder => {
         fs.readdir(`${Folder_Commands}/${folder}`, (err_2, files) => {
           if (!files[0]) {
-            console.log(`A pasta ${folder} não possui arquivos!`)
+            console.log(`A pasta ${folder} não possui comandos!`)
           }
           files.forEach(file => {
             if (path.extname(file) === ".js") {

@@ -1,3 +1,4 @@
+const errors = require('./Config/csl_code.json')
 const Discord = require('discord.js')
 const config = require('./Config/config.json')
 const client = require('./utils/client')
@@ -9,15 +10,14 @@ client.commands = new Discord.Collection()
 let dir = path.resolve(__dirname, "../src/Events")
 
 fs.readdir(dir, (err1, folders) => {
-  console.log(dir)
   try {
     if (err1) {
-      return console.log(`Erro interno ao "try" encontrado!\nErro: ${err1}`)
+      return console.log(`Erro "err#1" identificado: ${errors['err#1']} \nErro: ${err1}`)
     } else {
       folders.forEach(folder => {
         fs.readdir(dir + `/${folder}`, (err3, files) => {
           if (err3) {
-            console.log(`Erro em "err3" encontrado!\nErro: ${err3}`)
+            console.log(`Erro "err#3" identificado: ${errors['err#3']} \nErro: ${err3}`)
           } else {
             files.forEach(file => {
               if (path.extname(file) === '.js') {
@@ -32,7 +32,7 @@ fs.readdir(dir, (err1, folders) => {
       })
     }
   } catch (err2) {
-    console.log(`Erro externo ao "try" encontrado!\nErro: ${err2}`)
+    console.log(`Erro "err#2" identificado: ${errors['err#2']} \nErro: ${err2}`)
   }
 })
 

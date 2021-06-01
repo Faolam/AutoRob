@@ -1,4 +1,4 @@
-module.exports.run = (bot) => {
+module.exports.run = (bot, msg, args) => {
     console.log("Hey oi")
 }
 module.exports.help = {
